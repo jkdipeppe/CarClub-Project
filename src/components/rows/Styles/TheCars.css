@@ -1,0 +1,24 @@
+.TheCarsHeader{
+    margin-bottom: 10% !important;
+    height: 450px;
+    background-size: cover;
+    width:100%;
+    position: relative;
+    opacity:80%;
+}
+.PhotoText {
+    font-size: 4em;
+    margin-top: 100px !important;
+    opacity: 1 !important;
+    z-index: 100;
+    font-weight: bold;
+    /* position: absolute; */
+}
+
+.HeaderRow{
+    min-height:500px;
+}
+
+.CarDescriptions{
+    width: 70% !important;
+}
