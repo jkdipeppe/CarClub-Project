@@ -3,12 +3,12 @@ import { Grid, Image, Header, Container } from 'semantic-ui-react'
 import './Styles/TheCars.css'
 
 
-const vantageImage = require('../../images/2007-aston-martin-vantage.jpeg')
-const rapideImage = require('../../images/2011-aston-martin-rapide1.jpeg')
-const gtrImage = require('../../images/gtr1.jpeg')
-const hummerImage = require('../../images/hummer1.png')
-const camaroImage = require('../../images/71camaroSS2.jpeg')
-const corvette = require('../../images/c8.jpeg')
+const vantageImage = 'https://car-club-images.s3.amazonaws.com/2007-aston-martin-vantage.jpeg'
+const rapideImage = 'https://car-club-images.s3.amazonaws.com/2011-aston-martin-rapide1.jpeg'
+const gtrImage = 'https://car-club-images.s3.amazonaws.com/gtr1.jpeg'
+const hummerImage = 'https://car-club-images.s3.amazonaws.com/hummer1.png'
+const camaroImage = 'https://car-club-images.s3.amazonaws.com/71camaroSS2.jpeg'
+const corvette = 'https://car-club-images.s3.amazonaws.com/c8.jpeg'
 
 const vantage = {
   header: 'Aston Martin V8 Vantage',

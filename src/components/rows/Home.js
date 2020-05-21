@@ -11,7 +11,7 @@ import {
 import './Styles/Home.css';
 
 
-let ferrari = require('../../images/ferrari458.jpeg')
+let ferrari = 'https://car-club-images.s3.amazonaws.com/ferrari458.jpeg'
 
 export default class Home extends Component {
   state = { 

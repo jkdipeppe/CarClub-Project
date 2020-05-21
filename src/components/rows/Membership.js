@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Grid, Segment, Header, Divider, Card, Image } from 'semantic-ui-react'
 import './Styles/Membership.css'
 
-const gallardoImage = require('../../images/gallardo1.jpg')
-const revRoomImage = require('../../images/RevRoom.jpg')
-const carFleet = require('../../images/carFleet.png')
-const astonDriving = require('../../images/astonDriving.jpg')
+const gallardoImage = 'https://car-club-images.s3.amazonaws.com/gallardo1.jpg'
+const revRoomImage = 'https://car-club-images.s3.amazonaws.com/RevRoom.jpg'
+const carFleet = 'https://car-club-images.s3.amazonaws.com/carFleet.png'
+const astonDriving = 'https://car-club-images.s3.amazonaws.com/astonDriving.jpg'
 
 export default class Membership extends Component {
   render() {
