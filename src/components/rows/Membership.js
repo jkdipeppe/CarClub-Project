@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Grid, Segment, Header, Divider, Card, Image } from 'semantic-ui-react'
-import './Styles/Membership.css'
+import { Grid, Header, Card, Image } from 'semantic-ui-react'
+import './Styles/Membership.scss'
+import MembershipTiersMobile from './MembershipTiersMobile'
+import MembershipTiersDesktop from './MembershipTiersDesktop'
 
 const gallardoImage = 'https://car-club-images.s3.amazonaws.com/gallardo1.jpg'
 const revRoomImage = 'https://car-club-images.s3.amazonaws.com/RevRoom.jpg'
@@ -8,70 +10,35 @@ const carFleet = 'https://car-club-images.s3.amazonaws.com/carFleet.png'
 const astonDriving = 'https://car-club-images.s3.amazonaws.com/astonDriving.jpg'
 
 export default class Membership extends Component {
+  state = {
+    largeScreen: true
+  }
+  componentDidMount(){
+    let screenSize = true
+    if(window.innerWidth < 550){
+      screenSize = false
+    }
+    this.setState({largeScreen: screenSize})
+  }
+
   render() {
+    
     return (
       <div className="MembershipPage">
         <div className="MembershipImage" style={{backgroundImage: `url(${gallardoImage})`}}>
           <Header as="h1" textAlign='center' content="MEMBERSHIP TIERS" style={{fontWeight: 'bold', color:'black', fontSize: '50px'}}></Header>
-          <Grid centered fluid columns={4} divided>
-            <Grid.Row stretched>
-              <Grid.Column centered>
-                <Segment textAlign='center' inverted>
-                  <h1 style={{color:'#d32424'}}>Comfort</h1>
-                  <h4>4 Days Per Month</h4>
-                  <Divider/>
-                  <p>$500 Initiation Fee</p>
-                  <p style={{fontWeight:'bold', marginBottom:'0'}}>$8,500 Annual Payment</p>
-                  <p>($825/Month Installment Plan)</p>
-                  <Divider/>
-                  <p style={{fontWeight:'bold',marginBottom:'0'}}>Includes:</p>
-                  <p>- Full Fleet Access</p>
-                  <p>- Personal Vehicle Detailing when You Pick Up A Car</p>
-                  <p>- 2 Advanced Reservations Annually</p>
-                  <p>- 2 Complimentary Deliveries Annually</p>
-                </Segment>
-              </Grid.Column>
-              <Grid.Column centered>
-                <Segment textAlign='center' inverted>
-                  <h1 style={{color:'#d32424'}}>Sport</h1>
-                  <h4>7 Days Per Month</h4>
-                  <Divider/>
-                  <p >$500 Initiation Fee</p>
-                  <p style={{fontWeight:'bold', marginBottom:'0'}}>$11,500 Annual Payment</p>
-                  <p>($1,100/Month Installment Plan)</p>
-                  <Divider/>
-                  <p style={{fontWeight:'bold',marginBottom:'0'}}>Includes:</p>
-                  <p>- Full Fleet Access</p>
-                  <p>- Personal Vehicle Detailing when You Pick Up A Car</p>
-                  <p>- 4 Advanced Reservations Annually</p>
-                  <p>- 3 Complimentary Deliveries Annually</p>
-                </Segment>
-              </Grid.Column>
-              <Grid.Column centered>
-                <Segment textAlign='center' inverted>
-                  <h1 style={{color:'#d32424'}}>Corsa</h1>
-                  <h4>10 Days Per Month</h4>
-                  <Divider/>
-                  <p style={{fontWeight:'bold'}}>Waived Initiation Fee</p>
-                  <p style={{fontWeight:'bold', marginBottom:'0'}}>$15,000 Annual Payment</p>
-                  <p>($1,350/Month Installment Plan)</p>
-                  <Divider/>
-                  <p style={{fontWeight:'bold',marginBottom:'0'}}>Includes:</p>
-                  <p>- Full Fleet Access</p>
-                  <p>- Personal Vehicle Detailing when You Pick Up A Car</p>
-                  <p>- 6 Advanced Reservations Annually</p>
-                  <p>- 5 Complimentary Deliveries Annually</p>
-                  <p>- Spouse Included</p>
-                </Segment>
-              </Grid.Column>
-              
-            </Grid.Row>
+          <Grid centered fluid>
+            <div className="MembershipDesktop">
+              <MembershipTiersDesktop />
+            </div>
+             <div className="MembershipMobile">
+              <MembershipTiersMobile />
+            </div> 
           </Grid>
         </div>
         <div className="Benefits">
           <Header as="h1" textAlign='center'>Member Benefits</Header>
-          <Grid centered fluid columns={4} divided>
-            <Grid.Row stretched>
+          <Grid centered fluid columns={4} doubling>
               <Grid.Column centered>
                 <Card centered="true">
                   <Card.Content>
@@ -80,11 +47,12 @@ export default class Membership extends Component {
                   <Image src={carFleet} wrapped ui={false} />
                   <Card.Content>
                     <Card.Meta>
-                      <span className='date'>Fleet to Member Ratio 4:1</span>
+                      <span className='date'>Member to Fleet Ratio 4:1</span>
                     </Card.Meta>
                     <Card.Description>
                       All members have access to the full fleet of ever changing vehicles.
-                      We strive to keep a wide variety of vehicles to ensure the best of all driving esperiences.
+                      We strive to keep a wide variety of vehicles to ensure the best of all driving experiences.
+                      By keeping a low car to driver ratio it helps ensure that there is always a car ready for you!
                     </Card.Description>
                   </Card.Content>
                 </Card>
@@ -123,7 +91,6 @@ export default class Membership extends Component {
                   </Card.Content>
                 </Card>
               </Grid.Column>
-            </Grid.Row>
           </Grid>
         </div>
       </div>

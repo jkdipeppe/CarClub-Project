@@ -1,0 +1,23 @@
+$headerFont: 200%;
+
+.ApplyHeader {
+    height: 10em !important;
+}
+
+@media screen and (max-width: 549px) {
+  .PhotoText { 
+    font-size: $headerFont;
+  }
+}
+
+@media screen and (min-width: 550px) and (max-width: 799px) {
+  .PhotoText { 
+    font-size: $headerFont * 1.5;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .PhotoText { 
+    font-size: $headerFont * 2;
+  }
+}

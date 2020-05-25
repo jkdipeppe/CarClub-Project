@@ -94,3 +94,23 @@
   margin-top: 5%;
   background-color: #5A5A5A;
 }
+
+@media screen and (max-width: 770px) {
+  .HeaderImage{
+    height: 300px;
+  }
+
+ .ComparisonTable{
+   display: none !important;
+ }
+ .HomeIcons{
+   font-size: 3em !important;
+ }
+ .HomeIconSubtitle{
+   font-size: 1em !important;
+   position: relative;
+ }
+ .CarOwnershipRevolutionized{
+   width: 125px !important;
+  }
+}

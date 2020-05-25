@@ -1,3 +1,15 @@
+### To Run The Application locally 
+- fork/clone it locally
+- `npm install`
+- `npm start`
+- You should be able to access the app at localhost:3000
+
+### ToDo
+- link up apply button to the apply tab
+- create a database to store anyone who applies
+- edit style sheets and components for tablet/mobile viewing
+- refactor components for reusability
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

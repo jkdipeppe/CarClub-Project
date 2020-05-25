@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Image, Header, Container } from 'semantic-ui-react'
-import './Styles/TheCars.css'
+import './Styles/TheCars.scss'
 
 
 const vantageImage = 'https://car-club-images.s3.amazonaws.com/2007-aston-martin-vantage.jpeg'
@@ -44,7 +44,7 @@ export default class TheCars extends Component {
         <Grid centered textAlign="center" style={{position: 'relative'}}>
           <Header className="TheCarsHeader" as='h2' style={{backgroundImage: `url(${corvette})`}}>
             <Grid.Row stretched={true} className="HeaderRow" verticalAlign='middle'>
-                <div className="PhotoText">THE CARS</div>
+                <div className="TheCarsPhotoText">THE CARS</div>
             </Grid.Row>
           </Header>
         </Grid>

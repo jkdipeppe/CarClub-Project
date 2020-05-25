@@ -8,7 +8,7 @@ import {
   Grid,
   Table
 } from 'semantic-ui-react';
-import './Styles/Home.css';
+import './Styles/Home.scss';
 
 
 let ferrari = 'https://car-club-images.s3.amazonaws.com/ferrari458.jpeg'
@@ -46,24 +46,24 @@ export default class Home extends Component {
           <Container fluid>
             <Grid columns={4} centered>
               <Grid.Row>
-                <Grid.Column textAlign="center">
+                <Grid.Column className="CarOwnershipRevolutionized" textAlign="center">
                   <Grid.Row>
                     <Icon className="HomeIcons" size="huge" name="shield alternate" />
                   </Grid.Row>
-                  <Grid.Row>
+                  <Grid.Row textAlign='center'>
                     <p className="HomeIconSubtitle">Insurance</p>
                   </Grid.Row>
                 </Grid.Column>
-                <Grid.Column textAlign="center">
+                <Grid.Column className="CarOwnershipRevolutionized" textAlign="center">
                   <Grid.Row>
                     <Icon className="HomeIcons" size="huge" name="cogs" />
                   </Grid.Row>
-                  <Grid.Row>
+                  <Grid.Row textAlign='center'>
                     <p className="HomeIconSubtitle">Maintenance</p>
                   </Grid.Row>
                 </Grid.Column>
-                <Grid.Column textAlign="center">
-                  <Grid.Row>
+                <Grid.Column className="CarOwnershipRevolutionized" textAlign="center">
+                  <Grid.Row >
                     <Icon className="HomeIcons" size="huge" name="money" />
                   </Grid.Row>
                   <Grid.Row>
@@ -108,7 +108,7 @@ export default class Home extends Component {
           </Container>
         </Container>
 
-        <Container textAlign="center">
+        <Container className="ComparisonTable" textAlign="center">
           <Table definition textAlign="center">
             <Table.Header>
               <Table.Row>
