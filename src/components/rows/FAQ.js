@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Accordion, Icon, Header } from 'semantic-ui-react';
-import './Styles/FAQ.css';
+import './Styles/FAQ.scss';
 
 
 export default class FAQ extends Component {

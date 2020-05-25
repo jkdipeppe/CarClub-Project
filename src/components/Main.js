@@ -4,12 +4,34 @@ import  { Link } from 'react-router-dom';
 import Content from './Content';
 
 export default class Main extends Component {
-  state = { activeItem: 'Home', activeComponent: `` }
+  state = { activeItem: 'Home', activeComponent: ``, display: 'desktop' }
 
   handleItemClick = (e, { name }) => this.setState({ 
     activeItem: name,  
     activeComponent: `<${name}/>`
   })
+
+  // componentDidMount(){
+  //   let view = 'desktop'
+  //   if(window.innerWidth < 900){
+  //     view = 'tablet'
+  //   }
+  //   if(window.innerWidth < 460){
+  //     view = 'mobile'
+  //   }
+  //   this.setState({display: view})
+  // }
+
+  // componentDidUpdate(){
+  //   let view = 'desktop'
+  //   if(window.innerWidth < 900){
+  //     view = 'tablet'
+  //   }
+  //   if(window.innerWidth < 460){
+  //     view = 'mobile'
+  //   }
+  //   this.setState({display: view})
+  // }
 
   render() {
     const { activeItem } = this.state
@@ -55,7 +77,7 @@ export default class Main extends Component {
               />
           </Menu>
         </Segment>
-        <Content content={activeItem}/>
+        <Content content={activeItem} display={this.state.display}/>
         <div 
           className="footer" 
           style={{
