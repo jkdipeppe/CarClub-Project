@@ -28,7 +28,7 @@ export default class FAQ extends Component {
               onClick={this.handleClick}
             >
               <Icon name='dropdown' />
-              Why Kyle's Car Club?
+              Why The Car Club?
             </Accordion.Title>
             <Accordion.Content active={activeIndex === 0}>
               <p>
@@ -117,10 +117,10 @@ export default class FAQ extends Component {
             </Accordion.Title>
             <Accordion.Content active={activeIndex === 6}>
               <p>
-                No, Kyle's Car Club is a members only club who all share a passion and appreciation for all things automotive. 
+                No, The Car Club is a members only club who all share a passion and appreciation for all things automotive. 
                 We ask that all members enjoy the cars but treat with respect as if they were your own. 
                 By offering events and multiple driving days a month we feel it truly allows members to get to know each other and for drivers to get more out of the cars and enjoy the nuances of driving each unique car. 
-                From a 6 speed manual V8 Aston Martin Vantage to a twin turbo V6 GT-R that can do 0-60 in 3.5 seconds- Kyle's Car Club allows members to get plenty of seat time with a wide variety of vehicles!
+                From a 6 speed manual V8 Aston Martin Vantage to a twin turbo V6 GT-R that can do 0-60 in 3.5 seconds- The Car Club allows members to get plenty of seat time with a wide variety of vehicles!
               </p>
             </Accordion.Content>
           </Accordion>

@@ -5,7 +5,7 @@ export default class MembershipTiersDesktop extends Component {
   render(){
     return(
       <Grid columns="three">
-        <Grid.Row stretched fluid style={{margin:  '50px 10px 50px 10px'}}>
+        <Grid.Row stretched style={{margin:  '50px 10px 50px 10px'}}>
           <Grid.Column centered>
             <Segment textAlign='center' inverted>
             <h1 style={{color:'#d32424'}}>Comfort</h1>

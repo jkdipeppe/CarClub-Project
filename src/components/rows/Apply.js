@@ -18,14 +18,7 @@ const monthlyAnnuallyOptions = [
 ]
 
 export default class Apply extends Component {
-  state={display:'desktop'}
-
-  componentDidMount(){
-    this.setState({display: this.props.display})
-  }
-
   render() {
-    console.log('the display is: ', this.state.display)
     return (
       <div className="ApplyContainer">
         <Grid centered textAlign="center" >
