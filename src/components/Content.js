@@ -8,7 +8,7 @@ import Apply from './rows/Apply.js'
 export default class Content extends Component {
   render() {
     if(this.props.content === 'Home') {
-        return (<Home/>)
+        return (<Home name={this.props.name} gotoapply={this.props.gotoapply}/>)
     } else if(this.props.content === 'theCars') {
         return(<TheCars/>)
     } else if(this.props.content === 'Membership') {
@@ -20,6 +20,5 @@ export default class Content extends Component {
     } else {
         return(<Home word={this.props.content}/>)
     }
-    
   }
 };
