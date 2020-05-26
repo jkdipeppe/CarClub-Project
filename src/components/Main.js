@@ -4,34 +4,12 @@ import  { Link } from 'react-router-dom';
 import Content from './Content';
 
 export default class Main extends Component {
-  state = { activeItem: 'Home', activeComponent: ``, display: 'desktop' }
+  state = { activeItem: 'Home', activeComponent: `` }
 
   handleItemClick = (e, { name }) => this.setState({ 
     activeItem: name,  
     activeComponent: `<${name}/>`
   })
-
-  // componentDidMount(){
-  //   let view = 'desktop'
-  //   if(window.innerWidth < 900){
-  //     view = 'tablet'
-  //   }
-  //   if(window.innerWidth < 460){
-  //     view = 'mobile'
-  //   }
-  //   this.setState({display: view})
-  // }
-
-  // componentDidUpdate(){
-  //   let view = 'desktop'
-  //   if(window.innerWidth < 900){
-  //     view = 'tablet'
-  //   }
-  //   if(window.innerWidth < 460){
-  //     view = 'mobile'
-  //   }
-  //   this.setState({display: view})
-  // }
 
   render() {
     const { activeItem } = this.state
@@ -46,39 +24,40 @@ export default class Main extends Component {
                 name='Home'
                 active={activeItem === 'Home'}
                 onClick={this.handleItemClick}
+                gotoapply={this.handleItemClick}
               />
               <Menu.Item
-              as={Link}
-              to={'/TheCars'}
+                as={Link}
+                to={'/TheCars'}
                 name='theCars'
                 active={activeItem === 'theCars'}
                 onClick={this.handleItemClick}
               />
               <Menu.Item
-              as={Link}
-              to={'/Membership'}
+                as={Link}
+                to={'/Membership'}
                 name='Membership'
                 active={activeItem === 'Membership'}
                 onClick={this.handleItemClick}
               />
               <Menu.Item
-              as={Link}
-              to={'/FAQ'}
+                as={Link}
+                to={'/FAQ'}
                 name='FAQ'
                 active={activeItem === 'FAQ'}
                 onClick={this.handleItemClick}
               />
               <Menu.Item
-              as={Link}
-              to={'/Apply'}
+                as={Link}
+                to={'/Apply'}
                 name='Apply'
                 active={activeItem === 'Apply'}
                 onClick={this.handleItemClick}
               />
           </Menu>
         </Segment>
-        <Content content={activeItem} display={this.state.display}/>
-        <div 
+        <Content content={activeItem} name={activeItem} gotoapply={()=>this.handleItemClick('click', {name: 'Apply'})}/>
+        <div
           className="footer" 
           style={{
             backgroundColor:"#D3D3D3", 

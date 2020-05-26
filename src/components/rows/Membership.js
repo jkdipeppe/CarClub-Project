@@ -60,7 +60,7 @@ export default class Membership extends Component {
               <Grid.Column centered>
                 <Card centered="true">
                   <Card.Content>
-                    <Card.Header textAlign='center'>Rev Room Access</Card.Header>
+                    <Card.Header textAlign='center'>The Car Club Access</Card.Header>
                   </Card.Content>
                   <Image src={revRoomImage} wrapped ui={false} />
                   <Card.Content>
@@ -68,7 +68,7 @@ export default class Membership extends Component {
                       <span className='date'>Unique Event Space</span>
                     </Card.Meta>
                     <Card.Description>
-                      The Rev Room is a unique space where you can kick back and relax with other members while taking in the views of your fleet of cars.
+                      The The Car Club is a unique space where you can kick back and relax with other members while taking in the views of your fleet of cars.
                       Members have access to utilize this event space for small social gatherings, as well as, take part in events we host throughout the year.
                     </Card.Description>
                   </Card.Content>

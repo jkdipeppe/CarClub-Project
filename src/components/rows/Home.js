@@ -13,6 +13,24 @@ import './Styles/Home.scss';
 
 let ferrari = 'https://car-club-images.s3.amazonaws.com/ferrari458.jpeg'
 
+let whyTheCarClub = [
+  {
+    header: "Plenty Of Time Behind The Wheel",
+    body: "With membership tiers starting at 4 days of driving per month, as well as, an option to buy more days - you get plenty of time enjoying the finer vehicles in life!"
+  },
+  {
+    header: "Why drive one when you can drive them all?",
+    body: "The Car Club gives you access to an ever changing fleet of vehicles. As enthusiasts we're always wanting to get behind the wheel of anything - this is your opportunity!"
+  },
+  {
+    header: "Garage Space",
+    body: "Want to own and experience a variety of cars but don't have the space? This is the perfect way to do that! We provide storage for all of the cars, in addition to covering the insurance, maintenance and making sure we have new vehicles for our members."},
+  {
+    header: "Depreciation, Taxes and Insurance, Oh My!",
+    body: "With multi-car ownership comes multi-car depreciation, taxes and insurance costs. With a membership at The Car Club you can experience the benefits of multi-car ownership while not worrying about how much you might lose when you go to the sell the car. You also dont have to worry about the headasches of taxes, registration, emissions testing and insurance - all of which are an afterthought with a membership to The Car Club!"
+  }
+]
+
 export default class Home extends Component {
   state = { 
     firstName: '',
@@ -23,16 +41,25 @@ export default class Home extends Component {
     email: ''
   }
 
-  handleItemClick = (e, { name }) => this.setState({ 
-    activeItem: name,  
-    activeComponent: `<${name}/>`
-  })
-
-  submitForm = () => {
-    
-  }
-
   render() {
+    let reasons = []
+    whyTheCarClub.forEach((reason, index) => {
+      if(index === 0 || index % 2 === 0){
+        reasons.push(
+          <Container textAlign='left' style={{width:'100%', backgroundImage:'linear-gradient(to right, white, #D4D3D3, white)'}}>
+            <h3 className="WhyRevRoomHeaderLeft">{reason.header}</h3>
+            <p className="WhyRevRoomBodyLeft">{reason.body}</p>
+          </Container>
+        )
+      } else {
+        reasons.push(
+          <Container textAlign='right'style={{width:'100%'}} >
+            <h3 className="WhyRevRoomHeaderRight">{reason.header}</h3>
+            <p className="WhyRevRoomBodyRight">{reason.body}</p>
+          </Container>
+        )
+      }
+    })
     return (
       <div className='HeaderContainer'>
         <Header className='HomeHeader' style={{opacity:'50%'}} color="red" size='huge'>
@@ -41,7 +68,7 @@ export default class Home extends Component {
         <div className="HeaderImage" style={{backgroundImage:`url(${ferrari})`}}/>
         <Container className="HomeContent" fluid style={{padding:'4em'}}>
           <Header as='h1' size="huge" style={{color:'white'}}>KEYS | CARS | CAREFREE</Header>
-          <Header as='h2' style={{marginBottom:'2px', color:'white'}}>Welcome to the REV Room</Header>
+          <Header as='h2' style={{marginBottom:'2px', color:'white'}}>Welcome to the The Car Club</Header>
           <Header as='h3' style={{marginTop:'2px', marginBottom:'2em', color:'white'}}>Car Ownership REVolutionized</Header>
           <Container fluid>
             <Grid columns={4} centered>
@@ -74,46 +101,24 @@ export default class Home extends Component {
             </Grid>
           </Container>
           <Container className="RevRoomDescription">
-            Here at the Rev Room we are changing the way car enthusiasts can own and experience supercars, classic cars and everything in between!
-            With a Rev Room membership we cover all of the normal headaches of car ownership so you can just book and drive.
+            Here at the The Car Club we are changing the way car enthusiasts can own and experience supercars, classic cars and everything in between!
+            With a The Car Club membership we cover all of the normal headaches of car ownership so you can just book and drive.
             We welcome you join the REVolution and become a member today!
           </Container>
         </Container>
 
         <Container className="WhyRevRoom">
-          <Header as='h1'>WHY THE REV ROOM?</Header>
-          <Container textAlign='left' style={{width:'100%', backgroundImage:'linear-gradient(to right, white, #D4D3D3, white)'}}>
-            <h3 id="WhyRevRoomHeaderLeft">Plenty Of Time Behind The Wheel</h3>
-            <p id="WhyRevRoomBodyLeft">With membership tiers starting at 4 days of driving per month, as well as, an option to buy more days - you get plenty of time enjoying the finer vehicles in life! </p>
-          </Container>
-          <Container textAlign='right'style={{width:'100%'}} >
-            <h3 id="WhyRevRoomHeaderRight">Why drive one when you can drive them all?</h3>
-            <p id="WhyRevRoomBodyRight">The Rev Room gives you access to an ever changing fleet of vehicles. As enthusiasts we're always wanting to get behind the wheel of anything - this is your opportunity! </p>
-          </Container>
-          <Container textAlign='left' style={{width:'100%', backgroundImage:'linear-gradient(to right, white, #D4D3D3, white)'}}>
-            <h3 id="WhyRevRoomHeaderLeft">Plenty Of Time Behind The Wheel</h3>
-            <p id="WhyRevRoomBodyLeft">With membership tiers starting at 4 days of driving per month, as well as, an option to buy more days - you get plenty of time behind the wheel! </p>
-          </Container>
-          <Container textAlign='right'style={{width:'100%'}} >
-            <h3 id="WhyRevRoomHeaderRight">Plenty Of Time Behind The Wheel</h3>
-            <p id="WhyRevRoomBodyRight">With membership tiers starting at 4 days of driving per month, as well as, an option to buy more days - you get plenty of time behind the wheel! </p>
-          </Container>
-          <Container textAlign='left' style={{width:'100%', backgroundImage:'linear-gradient(to right, white, #D4D3D3, white)'}}>
-            <h3 id="WhyRevRoomHeaderLeft">Plenty Of Time Behind The Wheel</h3>
-            <p id="WhyRevRoomBodyLeft">With membership tiers starting at 4 days of driving per month, as well as, an option to buy more days - you get plenty of time behind the wheel! </p>
-          </Container>
-          <Container textAlign='right'style={{width:'100%'}} >
-            <h3 id="WhyRevRoomHeaderRight">Plenty Of Time Behind The Wheel</h3>
-            <p id="WhyRevRoomBodyRight">With membership tiers starting at 4 days of driving per month, as well as, an option to buy more days - you get plenty of time behind the wheel! </p>
-          </Container>
+          <Header as='h1'>WHY THE CAR CLUB?</Header>
+          {reasons}
         </Container>
 
+        <Header as='h1' style={{marginBottom: '20px'}}>Car Ownership vs. The Car Club Membership</Header>
         <Container className="ComparisonTable" textAlign="center">
           <Table definition textAlign="center">
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell />
-                <Table.HeaderCell>REV Room Membership</Table.HeaderCell>
+                <Table.HeaderCell>The Car Club Membership</Table.HeaderCell>
                 <Table.HeaderCell>Super Car ($200k)</Table.HeaderCell>
                 <Table.HeaderCell>Sports Car ($100k)</Table.HeaderCell>
                 <Table.HeaderCell>Classic Car ($50k)</Table.HeaderCell>
@@ -162,7 +167,7 @@ export default class Home extends Component {
           <Container textAlign='justified'>
             <b>Interested In Becomming a Member?</b>
             <Divider />
-            <Button>Apply Today!</Button>
+            <Button onClick={this.props.gotoapply}>Apply Today!</Button>
           </Container>
         </div>
       </div>
