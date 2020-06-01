@@ -69,7 +69,6 @@ workflows:
   deployment:
     jobs:
     - build-dev:
-        context: carclub-dev
         filters:
           branches:
             only:
@@ -77,13 +76,11 @@ workflows:
     - release-dev:
         requires:
           - build-dev
-        context: carclub-dev
         filters:
           branches:
             only:
             - develop
     - build-prod:
-        context: carclub-prod
         filters:
           branches:
             only:
@@ -91,7 +88,6 @@ workflows:
     - release-prod:
         requires:
           - build-prod
-        context: carclub-prod
         filters:
           branches:
             only:
