@@ -1,0 +1,98 @@
+version: 2.1
+
+orbs:
+  aws-cli: circleci/aws-cli@0.1.4
+  node: circleci/node@0.0.4
+
+common-build-steps: &common-build-steps
+  steps:
+    - checkout
+    - attach_workspace:
+        at: .
+    - node/install-package-manager:
+        npm: true
+    - run:
+        name: Install Dependencies
+        command: npm install
+    - run:
+        name: Build
+        command: npm run build
+    - persist_to_workspace:
+        root: .
+        paths:
+          - static
+
+common-release-steps: &common-release-steps
+  steps:
+    - aws-cli/install
+    - attach_workspace:
+        at: .
+    - run:
+        name: Install and Deploy to S3
+        command: >
+          aws s3 sync ./build s3://${AWS_S3_BUCKET} 
+          --delete 
+          --exclude ".*" 
+          --acl public-read 
+          --cache-control cacheHeader="public, max-age=${MAX_AGE}"
+
+jobs:
+
+  build-dev:
+    executor: node/default
+    environment:
+      NODE_ENV: development
+    <<: *common-build-steps
+
+  release-dev:
+    executor: aws-cli/default
+    environment:
+      AWS_S3_BUCKET: www.dev.carclub.com
+      MAX_AGE: 60
+    <<: *common-release-steps
+
+  build-prod:
+    executor: node/default
+    environment:
+      NODE_ENV: production
+    <<: *common-build-steps
+
+  release-prod:
+    executor: aws-cli/default
+    environment:
+      AWS_S3_BUCKET: www.carclub.com
+      MAX_AGE: 3600
+    <<: *common-release-steps
+
+workflows:
+  version: 2
+  deployment:
+    jobs:
+    - build-dev:
+        context: carclub-dev
+        filters:
+          branches:
+            only:
+            - develop
+    - release-dev:
+        requires:
+          - build-dev
+        context: carclub-dev
+        filters:
+          branches:
+            only:
+            - develop
+    - build-prod:
+        context: carclub-prod
+        filters:
+          branches:
+            only:
+            - master
+    - release-prod:
+        requires:
+          - build-prod
+        context: carclub-prod
+        filters:
+          branches:
+            only:
+            - master
