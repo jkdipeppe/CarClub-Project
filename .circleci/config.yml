@@ -20,7 +20,7 @@ common-build-steps: &common-build-steps
     - persist_to_workspace:
         root: .
         paths:
-          - static
+          - ./
 
 common-release-steps: &common-release-steps
   steps:
