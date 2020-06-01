@@ -14,10 +14,10 @@ common-build-steps: &common-build-steps
         npm: true
     - run:
         name: Install Dependencies
-        command: npm install --production
+        command: npm install
     - run:
         name: Build
-        command: NODE_ENV=${NODE_ENV} REACT_APP_ENV=${NODE_ENV} npm run build
+        command: npm run build
     - persist_to_workspace:
         root: .
         paths:
@@ -52,19 +52,6 @@ jobs:
       MAX_AGE: 60
     <<: *common-release-steps
 
-  build-stage:
-    executor: node/default
-    environment:
-      NODE_ENV: staging
-    <<: *common-build-steps
-
-  release-stage:
-    executor: aws-cli/default
-    environment:
-      AWS_S3_BUCKET: www.stage.carclub.com
-      MAX_AGE: 1800
-    <<: *common-release-steps
-
   build-prod:
     executor: node/default
     environment:
@@ -96,20 +83,6 @@ workflows:
           branches:
             only:
             - develop
-    - build-stage:
-        context: carclub-stage
-        filters:
-          branches:
-            only:
-            - /^release\/.*$|^hotfix\/.*$/
-    - release-stage:
-        requires:
-          - build-stage
-        context: carclub-stage
-        filters:
-          branches:
-            only:
-            - /^release\/.*$|^hotfix\/.*$/
     - build-prod:
         context: carclub-prod
         filters:
