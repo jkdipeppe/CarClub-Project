@@ -3,7 +3,6 @@ version: 2.1
 orbs:
   aws-cli: circleci/aws-cli@0.1.4
   node: circleci/node@0.0.4
-  slack: circleci/slack@0.1.0
 
 common-build-steps: &common-build-steps
   steps:
@@ -21,7 +20,7 @@ common-build-steps: &common-build-steps
     - persist_to_workspace:
         root: .
         paths:
-          - static
+          - ./
 
 common-release-steps: &common-release-steps
   steps:
@@ -70,7 +69,6 @@ workflows:
   deployment:
     jobs:
     - build-dev:
-        context: carclub-dev
         filters:
           branches:
             only:
@@ -78,13 +76,11 @@ workflows:
     - release-dev:
         requires:
           - build-dev
-        context: carclub-dev
         filters:
           branches:
             only:
             - develop
     - build-prod:
-        context: carclub-prod
         filters:
           branches:
             only:
@@ -92,7 +88,6 @@ workflows:
     - release-prod:
         requires:
           - build-prod
-        context: carclub-prod
         filters:
           branches:
             only:
